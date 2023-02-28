@@ -28,8 +28,8 @@
     --sidebar-width: 68px;
 }
 
-[link] { cursor: pointer; }
-[link]:hover { color: #27f; transition: .3s ease-in-out; }
+[link],[page] { cursor: pointer; }
+[link]:hover, [page]:hover { color: #27f; transition: .3s ease-in-out; }
 
 ::-webkit-scrollbar {
     width: 10px;
