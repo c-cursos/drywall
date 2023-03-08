@@ -74,6 +74,10 @@ t2 {
     word-wrap: break-word;
     color: #905;
 }
+
+img {
+    width: 300px;
+}
 p { word-wrap: break-word; }
 app-bar {
     display: block;
