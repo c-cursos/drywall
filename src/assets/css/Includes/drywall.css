@@ -1,6 +1,0 @@
-
-
-ol > li >:has( ol, ul, li ) {
-    font-size: .6em;
-    color: #e3e6e9;
-}
