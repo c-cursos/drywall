@@ -33,6 +33,30 @@ export default function Sidebar() {
                         <icon-name>Drywall</icon-name>
                     </icon>
                 </Link>
+                <Link to="/drywall/sanca-padrao">
+                    <icon>
+                        <icon-img class="material-icons">cloud</icon-img>
+                        <icon-name>Sanca</icon-name>
+                    </icon>
+                </Link>
+                <Link to="/drywall/forro-estruturado">
+                    <icon>
+                        <icon-img class="material-icons">cloud</icon-img>
+                        <icon-name>Forro</icon-name>
+                    </icon>
+                </Link>
+                <Link to="/drywall/calculo-de-materiais">
+                    <icon>
+                        <icon-img class="material-icons">cloud</icon-img>
+                        <icon-name>Calculos</icon-name>
+                    </icon>
+                </Link>
+                <Link to="/drywall/instalação">
+                    <icon>
+                        <icon-img class="material-icons">cloud</icon-img>
+                        <icon-name>Instalação</icon-name>
+                    </icon>
+                </Link>
             </dummy>
             <footer></footer>
         </home>
