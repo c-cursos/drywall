@@ -1,38 +1,27 @@
 
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <title>Drywall - Curso</title>
-    
-    <link rel="icon" href="src/pix/logo.svg" type="svg+xml">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../Assets/css/imports.css">
-    <script src="../Assets/Scripts/Globals.js" defer></script>
-    <script src="../Assets/Scripts/Sidebar.js" defer></script>
-</head>
-<body>
-    <app-bar></app-bar>
-    <side-bar>
-        <home>
-            <header></header>
-            <dummy>
-                <icon>
-                    <icon-img class="material-icons">cloud</icon-img>
-                    <icon-name>Drywall</icon-name>
-                </icon>
-            </dummy>
-            <footer></footer>
-        </home>
-    </side-bar>
-    <home>
-        <t1>Drywall - 4 Passos para executar o trabalho</t1>
-        <t2>
+import React from "react";
+import Comps from "../../../components/Comps";
+import janela from "./pix/janela.png";
+import MontantesAuxiliaresETravessaDaPorta from "./pix/Montantes auxiliares e travessa da porta.png";
+import paredeEmL from "./pix/parede em L.png";
+import instalaçãoDoChepeamentoDaPorta from "./pix/instalação do chepeamento da porta.png";
+
+
+
+export default function Instalação() {
+    document.title = "Guia De Instalação";
+    Comps.Pix.defaultProps = {
+        width: "350",
+    };
+
+    return( <>
+        <article>
+            <t1>Drywall - 4 Passos para executar o trabalho</t1>
+            <Comps.Pix url={ instalaçãoDoChepeamentoDaPorta } width={ "900px" } />
             <ol>
-                <li>Instalação das guias inferior e superior
+                <li>
+                    <t3>Instalação das guias inferior e superior</t3>
                     <ol>
                         <li>riscar o chão na posição da guia ( levando em conta a espessura da placa&lt;1cm p/ trás&gt; )</li>
                         <li>
@@ -52,7 +41,8 @@
                         </li>
                     </ol>
                 </li>
-                <li>Instalação dos montantes
+                <li>
+                    <t3>Instalação dos montantes</t3>
                     <ul>
                         <li>Instalação:
                             <ol>
@@ -96,16 +86,20 @@
                             <ul>
                                 <li>a parede B não deve ser encostada na parede A, deve ser levado em conta a expessura da chapa também</li>
                                 <li>os montantes da parede B devem ser instalados à 60cm entre: com referencia ao montante da parede A
-                                    <img src="../Assets/pix/parede em L.png" alt="" width="150">
+                                    <br />
+                                    <Comps.Pix url={ paredeEmL } />
                                 </li>
                             </ul>
                         </li>
-                        <li>Janelas
+                        <li>
+                            Janelas
                             <ul>
                                 <li>são instalados dois montantes como batentes da janela</li>
                                 <li>ambos com o lado aberto voltado para dentro</li>
-                                <li>respeitando o espaço de 60cm, devem ser instalados os montantes auxiliares</li>
-                                <li><img src="../Assets/pix/janela.png" width="150"></li>
+                                <li>respeitando o espaço de 60cm, devem ser instalados os montantes auxiliares
+                                    <br />
+                                    <Comps.Pix url={ janela } />
+                                </li>
                                 <li>para janelas coladas com espuma, a estrutura pode ser deixada no aço mesmo</li>
                                 <li>para janelas com trilhos do vidro, deve ser feito o chapeamento e o tratamento de quina</li>
                                 <li>nas áreas das curvas da janela ou porta, não deve ter as emendas, deve ser inteira</li>
@@ -120,14 +114,15 @@
                                 <li>para portas grandes ou pesadas = dois montantes ou com madeira dentro</li>
                                 <li>
                                     montantes auxiliares e a travessa da porta
-                                    <br>
-                                    <img src="../Assets/pix/Montantes auxiliares e travessa da porta.png" alt="">
+                                    <br />
+                                    <Comps.Pix url={ MontantesAuxiliaresETravessaDaPorta } />
                                 </li>
                                 <li>regras de chapeamento de portas
                                     <ul>
                                         <li>
                                             uma chapa inteira desde a bandeira até a parte de baixo alcançavel
-                                            <img src="../Assets/pix/instalação do chepeamento da porta.png" alt="" width="300">
+                                            <br />
+                                            <Comps.Pix url={ instalaçãoDoChepeamentoDaPorta } />
                                         </li>
                                         <li>fazer cortes de marcações com o serrote e riscar com o lapis</li>
                                         <li>cortar com o serrote um lado e a parte da bandeira</li>
@@ -138,7 +133,8 @@
                         </li>
                     </ul>
                 </li>
-                <li>Instalação das chapas drywall
+                <li>
+                    <t3>Instalação das chapas drywall</t3>
                     <ul>
                         <li>as placas não devem ser fixadas encostando no chão</li>
                         <li>a primeira placa deve começar inteira de baixo para cima</li>
@@ -150,7 +146,8 @@
                         <li>na parte de trás a placa também deve ser desencontrada com a do outro lado</li>
                     </ul>
                 </li>
-                <li>Tratamento das juntas ( fita e massa )
+                <li>
+                    <t3>Tratamento das juntas ( fita e massa )</t3>
                     <ul>
                         <li>Materiais:
                             <ul>
@@ -184,7 +181,8 @@
                         </li>
                     </ul>
                 </li>
-                <li>Elétrica básica
+                <li>
+                    <t3>Elétrica básica</t3>
                     <ul>
                         <li></li>
                         <li></li>
@@ -194,153 +192,15 @@
                     </ul>
                 </li>
             </ol>
-        </t2>
-        <tipos-de-montantes>
-            <t2>Tipos de guias e montantes</t2>
-            <ol>
-                <li>48mm: paredes e mobiliário</li>
-                <li>70mm: paredes com portas</li>
-                <li>90mm: parede de pé direito alto</li>
-            </ol>
-        </tipos-de-montantes>
-        <calculos-de-materiais>
-            <p>
-                área da chapa = 1,80 x 1,20 = 2,16 m2
-            </p>
+            <tipos-de-montantes>
+                <t2>Tipos de guias e montantes</t2>
+                <ol>
+                    <li>48mm: paredes e mobiliário</li>
+                    <li>70mm: paredes com portas</li>
+                    <li>90mm: parede de pé direito alto</li>
+                </ol>
+            </tipos-de-montantes>
+        </article>
+    </> );
+}
 
-            <p>
-                <h2>Exemplo</h2>
-                parede comprimento: 5m, pé direito: 2,70m
-                <li>Calculo da área
-                    <ul>
-                        <li>5 x 2,70 = 13,50</li>
-                        <li>13,50 x 2 = 27 m2</li>
-                    </ul>
-                </li>
-                <li>Chapas:
-                    <ul>
-                        <li>área da chapa: 2,16 m2</li>
-                        <li>área da parede: 27 m2</li>
-                        <li>Fórmula: área da parede / 2,16 + 5%</li>
-                        <li>
-                            27 / 2,16 = 12,50
-                            <br>
-                            12,50 + 5% = 13,12
-                        </li>
-                    </ul>
-                </li>
-                <li>Guias: metro linear
-                    <ul>
-                        <li>5 x 2 = 10m</li>
-                        <li>10 / 3 = 3,33</li>
-                        <li>= 4 peças</li>
-                    </ul>
-                </li>
-                <li>Montantes: a cada 60cm
-                    <ul>
-                        <li>5 / 0,60 = 8,33</li>
-                        <li>+ 2 montantes das extremidades</li>
-                        <li>= 10 peças</li>
-                    </ul>
-                </li>
-            </p>
-        </calculos-de-materiais>
-        <sanca-padrao>
-            <t1>Sanca padrão</t1>
-            <br>
-            <t2>medidas</t2>
-            <ul>
-                <li>rebaixo acabado: 15cm</li>
-                <li>corpo: 40cm</li>
-                <li>iluminação indireta: 10cm</li>
-            </ul>
-            <t2>instalação das cantoneiras</t2>
-            <ul>
-                <li><img src="../Assets/pix/instalação das cantoneiras da sanca padrão.png" alt=""></li>
-                <li>cantoneira: 25 x 30</li>
-                <li>cantoneira da parede: lado maior na parede</li>
-                <li>cantoneira do teto: lado menor no teto</li>
-                <li>parafusos:
-                    <ul>
-                        <li>cantoneiras: parafuso 6</li>
-                        <li>tirantes: parafuso 8 e arruela</li>
-                    </ul>
-                </li>
-                <li>tirantes:
-                    <ul>
-                        <li>quase encostado com a canaleta do teto</li>
-                        <li>15 cm das estremidades</li>
-                        <li>e a cada 1 metro</li>
-                        <li><img src="../Assets/pix/esqueleto da sanca padrão.png" alt=""></li>
-                        <li>o nível é feito após instalar a canaleta f530</li>    
-                        <li><img src="../Assets/pix/nivelamento da sanca.png" alt=""></li>
-                    </ul>
-                </li>
-                <li>chapeamento:
-                    <ul>
-                        <li>começa pela frente</li>
-                        <li>faz o tratamento das juntas</li>
-                        <li>faz a instalação do corpo com 1cm a menos do total</li>
-                        <li>a aba tem a metade da altura do rebaixo</li>
-                        <li>instala uma canaleta f530 na beirada da sanca</li>
-                        <li>tratamento da quina com a fita leveline</li>
-                    </ul>
-                </li>
-            </ul>
-        </sanca-padrao>
-        <forro-estruturado-drywall>
-            <t1>Forro Estruturado Drywall</t1>
-            <t2>07 passos</t2>
-            <ol>
-                <li>Riscar no perímetro o nível do forro</li>
-                <li>Instalação da cantoneira 25/30 ou tabica</li>
-                <li>Instalar os tirantes e reguladores</li>
-                <li>Instalar as canaletas f530</li>
-                <li>Nivelar o forro</li>
-                <li>Fazer o chapeamento drywall</li>
-                <li>Fazer o tratamento de juntas</li>
-            </ol>
-            <t2>CALCULAR ÁREA E PERÍMETRO</t2>
-            <ol>
-                <li>Área: medida de toda superfície e espaço do ambiente
-                    <ul>
-                        <li>Primeira coisa a se fazer</li>
-                        <li>é medida em metros quadrados</li>
-                    </ul>
-                </li>
-                <li>Perímetro: soma de todos os lados de um ambiente
-                    <ul>
-                        <li>usado para calcular as quantidades de cantoneiras 25/30, tabica</li>
-                        <li>é medido em metro linear</li>
-                    </ul>
-                </li>
-                <li>Cálculo de exemplo:
-                    <ul>
-                        <li>Sala: h = 8m, v = 4m</li>
-                        <li>Área
-                            <ul>
-                                <li>área = 8m x 4m</li>
-                                <li>área = 32 m2</li>
-                            </ul>
-                        </li>
-                        <li>Perímetro
-                            <ul>
-                                <li>perímetro = 8 + 8 + 4 + 4</li>
-                                <li>perímetro = 24m</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ol>
-            <t2>Instalação</t2>
-            <ul>
-                <li>furação a cada 60cm</li>
-                <li></li>
-            </ul>
-        </forro-estruturado-drywall>
-    </home>
-    
-    <script>
-    </script>
-</body>
-</html>
