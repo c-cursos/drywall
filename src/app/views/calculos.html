@@ -329,7 +329,18 @@
            <input area type="number" placeholder="Área do forro"> <br>
            <input perimetro type="number" placeholder="Perímetro"> <br>
 
-           <button onclick="  ">Calcular</button>
+           <button calcular>Calcular</button>
+
+           <br><br>
+           <hr>
+           <label>
+                <t3>Quantidade de chapas:</t3>
+               <input chapas type="number" readonly> <br>
+            </label>
+            <label>
+                <t3>Quantidade de tabicas ou cantoneiras:</t3>
+                <input tabicas type="number" readonly> <br>
+            </label>
        </main>
 
        <t4>Diagramação</t4>
@@ -340,8 +351,89 @@
         4 jogos por tabica <br>
 
 
-       <script src="drywallCalcs.js"></script>
        <script>
+        const Area = {
+            st: ( 1.80 * 1.20 ),
+            ru: ( 1.80 * 1.20 ),
+            rf: ( 1.80 * 1.20 ),
+            lev: ( 2.40 * 1.20 ),
+
+        };
+
+        const calc = {
+            chapas: ( placa, peDireito, comprimento, umOuDoisLados ) => {
+                const area = {
+                    parede: peDireito * comprimento * umOuDoisLados,
+                    placa: ( 1.80 * 1.20 ),
+                };
+
+                return( area.parede / area.placa ) * 1.05;
+
+
+                // switch( placa ) {
+                //     case "st": {
+                //         st 
+                //     };
+                //     break;
+                //     case "ru": ;
+                //     break;
+                //     case "rf": ;
+                //     break;
+                // }
+            },
+            guias: ( comprimento ) => {
+                const metroLinear = comprimento * 2;
+
+                let quantidadeDeGuias = 0;
+
+                return quantidadeDeGuias = Math.ceil( metroLinear / 3 );
+            },
+            montantes: ( comprimento, espaçamentoDosMontantes ) => {
+                let quantidadeDeMontantes = ( comprimento / espaçamentoDosMontantes ) + 2;
+
+                return( quantidadeDeMontantes );
+            },
+            forro: ( areaDoForro, perimetro ) => {
+                const 
+                    areaDaChapa = ( 1.80 * 1.20 ),
+                    area = ( areaDoForro / areaDaChapa ) * 1.05,
+                    areaDoPerimetro = perimetro / 3;
+
+                let chapas = ( area ),
+                    cantoneiras = ( areaDoPerimetro );
+
+                let res = ( area );
+
+                _( `area da chapa: ${areaDaChapa}` );
+                _( `area do forro: ${areaDoForro}` );
+                _( `area: ${area}` );
+                _( `res: ${res}` );
+                _( `tabicas: ${areaDoPerimetro}` );
+                
+                return [ chapas, cantoneiras ];
+                
+            },
+            forroLev: ( areaDoForro, perimetro ) => {
+                const 
+                    areaDaChapa = ( 2.40 * 1.20 ),
+                    area = ( areaDoForro / areaDaChapa ) * 1.05,
+                    areaDoPerimetro = perimetro / 3;
+
+                let chapas = ( area ),
+                    cantoneiras = ( areaDoPerimetro );
+
+                let res = ( area );
+
+                _( `area da chapa: ${areaDaChapa}` );
+                _( `area do forro: ${areaDoForro}` );
+                _( `area: ${area}` );
+                _( `res: ${res}` );
+                _( `tabicas: ${areaDoPerimetro}` );
+                return [ chapas, cantoneiras ];
+                
+            },
+            // wall: (  ) => {},
+        };
            'use strict';
            /* ==[ properties ]================= */
            const $ = v => document.querySelector( v ),
@@ -353,7 +445,12 @@
 
            /* ==[ events ]==================== */
            window.addEventListener( 'load', ev => {
-               let NavLinks = $$( 'navlink' );
+               let NavLinks = $$( 'navlink' ),
+               inputA = document.querySelector( "[area]" ),
+               inputp = document.querySelector( "[perimetro]" ),
+               inputChapas = document.querySelector( "[chapas]" ),
+               inputTabicas = document.querySelector( "[tabicas]" ),
+               btn = document.querySelector( "button[calcular]" );
 
 
 
@@ -361,11 +458,13 @@
                    window.open( link.getAttribute( 'to' ), '_blank' );
                } ) );
 
+               btn.addEventListener( "click", ev => {
+                   _( calc.forro( inputA.value, inputp.value ) );
+                    [ inputChapas.value, inputTabicas.value ] = calc.forro( inputA.value, inputp.value );
+               } );
            } );
+
            
-            function calcular(  ) {
-                let f = document.querySelector( "" )
-            }
 
        </script>
    </body>
