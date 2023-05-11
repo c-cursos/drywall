@@ -326,8 +326,12 @@
 
        <main>
            <t2>forro</t2> <br>
-           <input area type="number" placeholder="Área do forro"> <br>
-           <input perimetro type="number" placeholder="Perímetro"> <br>
+           <label>
+               <input area type="number" placeholder="Área do forro"> <br>
+            </label>
+           <label>
+               <input perimetro type="number" placeholder="Perímetro"> <br>
+            </label>
 
            <button calcular>Calcular</button>
 
@@ -341,6 +345,15 @@
                 <t3>Quantidade de tabicas ou cantoneiras:</t3>
                 <input tabicas type="number" readonly> <br>
             </label>
+            <label>
+                <t3>Jogos de tirantes:</t3>
+                <input tirantes-tabicas type="number" readonly> <br>
+                <input tirantes-cantoneiras type="number" readonly> <br>
+            </label>
+            <label>
+                <t3>Parafusos GN25:</t3>
+                <input gn25 type="number" readonly> <br>
+            </label>
        </main>
 
        <t4>Diagramação</t4>
@@ -351,121 +364,148 @@
         4 jogos por tabica <br>
 
 
-       <script>
-        const Area = {
-            st: ( 1.80 * 1.20 ),
-            ru: ( 1.80 * 1.20 ),
-            rf: ( 1.80 * 1.20 ),
-            lev: ( 2.40 * 1.20 ),
-
-        };
-
-        const calc = {
-            chapas: ( placa, peDireito, comprimento, umOuDoisLados ) => {
-                const area = {
-                    parede: peDireito * comprimento * umOuDoisLados,
-                    placa: ( 1.80 * 1.20 ),
-                };
-
-                return( area.parede / area.placa ) * 1.05;
-
-
-                // switch( placa ) {
-                //     case "st": {
-                //         st 
-                //     };
-                //     break;
-                //     case "ru": ;
-                //     break;
-                //     case "rf": ;
-                //     break;
-                // }
-            },
-            guias: ( comprimento ) => {
-                const metroLinear = comprimento * 2;
-
-                let quantidadeDeGuias = 0;
-
-                return quantidadeDeGuias = Math.ceil( metroLinear / 3 );
-            },
-            montantes: ( comprimento, espaçamentoDosMontantes ) => {
-                let quantidadeDeMontantes = ( comprimento / espaçamentoDosMontantes ) + 2;
-
-                return( quantidadeDeMontantes );
-            },
-            forro: ( areaDoForro, perimetro ) => {
-                const 
-                    areaDaChapa = ( 1.80 * 1.20 ),
-                    area = ( areaDoForro / areaDaChapa ) * 1.05,
-                    areaDoPerimetro = perimetro / 3;
-
-                let chapas = ( area ),
-                    cantoneiras = ( areaDoPerimetro );
-
-                let res = ( area );
-
-                _( `area da chapa: ${areaDaChapa}` );
-                _( `area do forro: ${areaDoForro}` );
-                _( `area: ${area}` );
-                _( `res: ${res}` );
-                _( `tabicas: ${areaDoPerimetro}` );
-                
-                return [ chapas, cantoneiras ];
-                
-            },
-            forroLev: ( areaDoForro, perimetro ) => {
-                const 
-                    areaDaChapa = ( 2.40 * 1.20 ),
-                    area = ( areaDoForro / areaDaChapa ) * 1.05,
-                    areaDoPerimetro = perimetro / 3;
-
-                let chapas = ( area ),
-                    cantoneiras = ( areaDoPerimetro );
-
-                let res = ( area );
-
-                _( `area da chapa: ${areaDaChapa}` );
-                _( `area do forro: ${areaDoForro}` );
-                _( `area: ${area}` );
-                _( `res: ${res}` );
-                _( `tabicas: ${areaDoPerimetro}` );
-                return [ chapas, cantoneiras ];
-                
-            },
-            // wall: (  ) => {},
-        };
-           'use strict';
-           /* ==[ properties ]================= */
-           const $ = v => document.querySelector( v ),
-               $$ = v => document.querySelectorAll( v ),
-               _ = v => console.log( v );
-           /* -------------------------------- */
-
-
-
-           /* ==[ events ]==================== */
-           window.addEventListener( 'load', ev => {
-               let NavLinks = $$( 'navlink' ),
-               inputA = document.querySelector( "[area]" ),
-               inputp = document.querySelector( "[perimetro]" ),
-               inputChapas = document.querySelector( "[chapas]" ),
-               inputTabicas = document.querySelector( "[tabicas]" ),
-               btn = document.querySelector( "button[calcular]" );
+        <script formula>
+            const Area = {
+                st: ( 1.80 * 1.20 ),
+                ru: ( 1.80 * 1.20 ),
+                rf: ( 1.80 * 1.20 ),
+                lev: ( 2.40 * 1.20 ),
+    
+            };
+    
+            const calc = {
+                chapas: ( placa, peDireito, comprimento, umOuDoisLados ) => {
+                    const area = {
+                        parede: peDireito * comprimento * umOuDoisLados,
+                        placa: ( 1.80 * 1.20 ),
+                    };
+    
+                    return( area.parede / area.placa ) * 1.05;
+    
+    
+                    // switch( placa ) {
+                    //     case "st": {
+                    //         st 
+                    //     };
+                    //     break;
+                    //     case "ru": ;
+                    //     break;
+                    //     case "rf": ;
+                    //     break;
+                    // }
+                },
+                guias: ( comprimento ) => {
+                    const metroLinear = comprimento * 2;
+    
+                    let quantidadeDeGuias = 0;
+    
+                    return quantidadeDeGuias = Math.ceil( metroLinear / 3 );
+                },
+                montantes: ( comprimento, espaçamentoDosMontantes ) => {
+                    let quantidadeDeMontantes = ( comprimento / espaçamentoDosMontantes ) + 2;
+    
+                    return( quantidadeDeMontantes );
+                },
+                forro: ( areaDoForro, perimetro ) => {
+                    const 
+                        areaDaChapa = ( 1.80 * 1.20 ),
+                        area = ( areaDoForro / areaDaChapa ) * 1.05,
+                        areaDoPerimetro = perimetro / 3;
+    
+                    let chapas = Math.round( area ),
+                        cantoneiras = ( areaDoPerimetro ),
+                        tirantesTabicas = ( areaDoPerimetro * 4 ),
+                        tirantesCantoneiras = ( areaDoPerimetro * 3 ),
+                        gn25 = Math.round( chapas * 40 );
+    
+                    let res = ( area );
+    
+                    _( `area da chapa: ${areaDaChapa}` );
+                    _( `area do forro: ${areaDoForro}` );
+                    _( `area: ${area}` );
+                    _( `res: ${res}` );
+                    _( `tabicas: ${areaDoPerimetro}` );
+                    _( `parafusos gn25: ${gn25}` );
+                    
+                    return [ 
+                        chapas, cantoneiras, tirantesTabicas, tirantesCantoneiras, gn25 
+                    ];
+                    
+                },
+                forroLev: ( areaDoForro, perimetro ) => {
+                    const 
+                        areaDaChapa = ( 2.40 * 1.20 ),
+                        area = ( areaDoForro / areaDaChapa ) * 1.05,
+                        areaDoPerimetro = perimetro / 3;
+    
+                    let chapas = Math.round( area ),
+                        cantoneiras = ( areaDoPerimetro );
+    
+                    let res = ( area );
+    
+                    _( `area da chapa: ${areaDaChapa}` );
+                    _( `area do forro: ${areaDoForro}` );
+                    _( `area: ${area}` );
+                    _( `res: ${res}` );
+                    _( `tabicas: ${areaDoPerimetro}` );
+                    return [ chapas, cantoneiras ];
+                    
+                },
+                // wall: (  ) => {},
+            };
+        </script>
+        <script>
+            'use strict';
+            /* ==[ properties ]================= */
+            const $ = v => document.querySelector( v ),
+                $$ = v => document.querySelectorAll( v ),
+                _ = v => console.log( v );
+            /* -------------------------------- */
 
 
 
-              NavLinks.forEach( link => link.addEventListener( 'click', ev => {
-                   window.open( link.getAttribute( 'to' ), '_blank' );
-               } ) );
+            /* ==[ events ]==================== */
+            window.addEventListener( 'load', ev => {
+                let NavLinks = $$( 'navlink' ),
+                inputA = document.querySelector( "[area]" ),
+                inputp = document.querySelector( "[perimetro]" ),
+                inputChapas = document.querySelector( "[chapas]" ),
+                inputTabicas = document.querySelector( "[tabicas]" ),
+                inputGN25 = document.querySelector( "[gn25]" ),
+                inputTirantesTabicas = document.querySelector( "[tirantes-tabicas]" ),
+                inputTirantesCantoneiras = document.querySelector( "[tirantes-cantoneiras]" ),
+                btn = document.querySelector( "button[calcular]" );
 
-               btn.addEventListener( "click", ev => {
-                   _( calc.forro( inputA.value, inputp.value ) );
-                    [ inputChapas.value, inputTabicas.value ] = calc.forro( inputA.value, inputp.value );
-               } );
-           } );
 
-           
 
-       </script>
+                NavLinks.forEach( link => link.addEventListener( 'click', ev => {
+                    window.open( link.getAttribute( 'to' ), '_blank' );
+                } ) );
+
+                btn.addEventListener( "click", ev => {
+                    _( calc.forro( inputA.value, inputp.value ) );
+
+                    [ 
+                        inputChapas.value, 
+                        inputTabicas.value,
+                        inputTirantesTabicas.value,
+                        inputTirantesCantoneiras.value,
+                        inputGN25.value 
+                    ] = calc.forro(
+                        inputA.value, 
+                        inputp.value,
+                        inputTirantesTabicas.value,
+                        inputTirantesCantoneiras.value,
+                        inputGN25.value
+                    );
+                } );
+            } );
+
+            
+
+        </script>
    </body>
 </html>
+
+<l link="https://placo.com.br/blog/como-calcular-quantidade-necessaria-de-drywall-para-montar-uma-parede">plac</l>
+<l link="http://leonsistemasconstrutivos.com.br/calculadora-forro-tabicado/">calc forro tabicado</l>
