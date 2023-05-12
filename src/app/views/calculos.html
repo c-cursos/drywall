@@ -63,7 +63,7 @@
                 linear-gradient(90deg, #00000000 24px, #313339 25px);
                 background-size: 25px 25px;}
             body {
-                width: calc( 100% - var( --sidebar-width ) );
+                width: 100%;
                 min-height: 100vh;
                 /* margin-left: var( --sidebar-width ); */
                 padding-top: 81px;
@@ -73,7 +73,7 @@
                 
                 position: absolute;
                 top: 71px; left: 0;
-                padding: 3rem 0 2rem;
+                
             }
             body > main {
                 margin: 0 auto;
@@ -83,7 +83,7 @@
                 font-weight: bold;
             }
             t { font-size: 1.1rem; display: grid; }
-            t1 { color: #509; font-size: 3rem; }
+            t1 { color: #f27; font-size: 3rem; }
             t2 { font-size: 2.5rem; }
             t3 { font-size: 2rem; }
             p { word-wrap: break-word; }
@@ -232,13 +232,15 @@
                 margin: 1ch 0 .5ch;
                 font-variant: small;
             }
-            label > input {
+            label > input,
+            select {
                 border-radius: 9px;
                 border: transparent;
                 padding: 0.5rem;
                 font-size: 1.1rem;
                 outline: transparent;
                 cursor: pointer;
+                width: 100%;
             }
             label > input:focus-visible {
             }
@@ -275,6 +277,9 @@
                 box-shadow: var( --purple-light ) 0 2px 0 1px;
                 transform: translateY(-1px);
                 transition: .15s all ease;
+            }
+            button[ width="100" ] {
+                width: 100%;
             }
             article > section {
                 margin: 0 auto;
@@ -325,7 +330,15 @@
         </appbar>
 
        <main>
-           <t2>forro</t2> <br>
+           <article>
+           
+           <t1>forro</t1> <br>
+           
+               <select chapa-type >
+                   <option value="st" >chapa st:  1,80 x 1,20 = 2,16</option>
+                   <option value="lev" >chapa lev: 2,40 x 1,20 = 2,88</option>
+               </select>
+           
            <label>
                <input area type="number" placeholder="Área do forro"> <br>
             </label>
@@ -333,7 +346,7 @@
                <input perimetro type="number" placeholder="Perímetro"> <br>
             </label>
 
-           <button calcular>Calcular</button>
+           <button width="100" calcular>Calcular</button>
 
            <br><br>
            <hr>
@@ -354,6 +367,7 @@
                 <t3>Parafusos GN25:</t3>
                 <input gn25 type="number" readonly> <br>
             </label>
+           </article>
        </main>
 
        <t4>Diagramação</t4>
@@ -507,5 +521,5 @@
    </body>
 </html>
 
-<l link="https://placo.com.br/blog/como-calcular-quantidade-necessaria-de-drywall-para-montar-uma-parede">plac</l>
-<l link="http://leonsistemasconstrutivos.com.br/calculadora-forro-tabicado/">calc forro tabicado</l>
+<navlink to="https://placo.com.br/blog/como-calcular-quantidade-necessaria-de-drywall-para-montar-uma-parede">plac</navlink>
+<navlink to="http://leonsistemasconstrutivos.com.br/calculadora-forro-tabicado/">calc forro tabicado</navlink>
