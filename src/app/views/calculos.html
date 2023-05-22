@@ -384,7 +384,6 @@
                 ru: ( 1.80 * 1.20 ),
                 rf: ( 1.80 * 1.20 ),
                 lev: ( 2.40 * 1.20 ),
-    
             };
     
             const calc = {
@@ -472,47 +471,50 @@
             'use strict';
             /* ==[ properties ]================= */
             const $ = v => document.querySelector( v ),
-                $$ = v => document.querySelectorAll( v ),
-                _ = v => console.log( v );
+               $$ = v => document.querySelectorAll( v ),
+               _ = v => console.log( v );
             /* -------------------------------- */
 
 
 
             /* ==[ events ]==================== */
             window.addEventListener( 'load', ev => {
-                let NavLinks = $$( 'navlink' ),
-                inputA = document.querySelector( "[area]" ),
-                inputp = document.querySelector( "[perimetro]" ),
-                inputChapas = document.querySelector( "[chapas]" ),
-                inputTabicas = document.querySelector( "[tabicas]" ),
-                inputGN25 = document.querySelector( "[gn25]" ),
-                inputTirantesTabicas = document.querySelector( "[tirantes-tabicas]" ),
-                inputTirantesCantoneiras = document.querySelector( "[tirantes-cantoneiras]" ),
-                btn = document.querySelector( "button[calcular]" );
+               let NavLinks = $$( 'navlink' );
+                
+               const inputs = {
+                  area: $( "[area]" ),
+                  perimetro: $( "[perimetro]" ),
+                  chapas: $( "[chapas]" ),
+                  tabicas: $( "[tabicas]" ),
+                  GN25: $( "[gn25]" ),
+                  tirantesTabicas: $( "[tirantes-tabicas]" ),
+                  tirantesCantoneiras: $( "[tirantes-cantoneiras]" ),
+                  btn: $( "button[calcular]" )
+               };
 
 
 
-                NavLinks.forEach( link => link.addEventListener( 'click', ev => {
-                    window.open( link.getAttribute( 'to' ), '_blank' );
-                } ) );
+               NavLinks.forEach( link => link.addEventListener( 'click', ev => {
+                  window.open( link.getAttribute( 'to' ), '_blank' );
+               } ) );
 
-                btn.addEventListener( "click", ev => {
-                    _( calc.forro( inputA.value, inputp.value ) );
+               inputs.btn.addEventListener( "click", ev => {
+                  _( calc.forro( inputs.area.value, inputs.perimetro.value ) );
 
-                    [ 
-                        inputChapas.value, 
-                        inputTabicas.value,
-                        inputTirantesTabicas.value,
-                        inputTirantesCantoneiras.value,
-                        inputGN25.value 
-                    ] = calc.forro(
-                        inputA.value, 
-                        inputp.value,
-                        inputTirantesTabicas.value,
-                        inputTirantesCantoneiras.value,
-                        inputGN25.value
-                    );
-                } );
+                  [ 
+                     inputs.chapas.value, 
+                     inputs.tabicas.value,
+                     inputs.tirantesTabicas.value,
+                     inputs.tirantesCantoneiras.value,
+                     inputs.GN25.value 
+                  ] = calc.forro(
+                     inputs.area.value, 
+                     inputs.perimetro.value,
+                     inputs.tirantesTabicas.value,
+                     inputs.tirantesCantoneiras.value,
+                     inputs.GN25.value
+                  );
+               } );
             } );
 
             
